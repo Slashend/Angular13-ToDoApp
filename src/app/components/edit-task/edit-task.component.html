@@ -1,0 +1,62 @@
+<div class = "editTaskFormContainer">
+   <div class="h4 note note-primary text-muted">Edit Existing Task</div>
+
+  <form [formGroup]="onEditTaskFormGroup">
+
+    <div>
+      <div>
+        <div class="form-field input-group input-group-lg formInputEntry">
+          <span class="input-group-text formLabel" id="inputGroup-sizing-lg">Name</span>
+          <input id="name" name="name" class="form-control" type="text" formControlName="name" placeholder="Please add a name for the task (required)" required
+                [ngClass]="onEditTaskFormGroup.get('name')?.touched && !onEditTaskFormGroup.get('name')?.valid ? 'formInputBoxBorderError' : 'formInputBoxBorderNoError'"/>
+        </div>
+        <div class="formInputErrorMessage" *ngIf = "onEditTaskFormGroup.get('name')?.touched && !onEditTaskFormGroup.get('name')?.valid">
+          <span>Name is required, and has a maximum length of 32 characters</span>
+        </div>
+      </div>
+      <div>
+        <div class="form-field input-group input-group-lg formInputEntry">
+          <span class="input-group-text formLabel" id="inputGroup-sizing-lg">Description</span>
+          <input id="description" name="description" class="form-control" type="text" formControlName="description" placeholder="Please add a description for the task (required)" required
+                [ngClass]="onEditTaskFormGroup.get('description')?.touched && !onEditTaskFormGroup.get('description')?.valid ? 'formInputBoxBorderError' : 'formInputBoxBorderNoError'"/>
+        </div>
+        <div class="formInputErrorMessage" *ngIf = "onEditTaskFormGroup.get('description')?.touched && !onEditTaskFormGroup.get('description')?.valid">
+          <span>Description is required, and has a maximum length of 255 characters</span>
+        </div>
+      </div>
+      <div>
+        <div class="form-field input-group input-group-lg formInputEntry">
+          <span class="input-group-text formLabel" id="inputGroup-sizing-lg">Due Date</span>
+          <input id="dueDate" name="dueDate" class="form-control" type="date" formControlName="dueDate"
+          [ngClass]="onEditTaskFormGroup.get('dueDate')?.touched && !onEditTaskFormGroup.get('dueDate')?.valid ? 'formInputBoxBorderError' : 'formInputBoxBorderNoError'"/>
+        </div>
+        <div class="formInputErrorMessage" *ngIf = "onEditTaskFormGroup.get('dueDate')?.touched && !onEditTaskFormGroup.get('dueDate')?.valid">
+          <span>Due Date is not required; but edits on it will not allow past dates</span>
+        </div>
+      </div>
+      <div>
+        <div class="form-field input-group input-group-lg formInputEntry">
+          <span class="input-group-text formLabel" id="inputGroup-sizing-lg">Task Status</span>
+          <select name="status"  class="form-control" [ngClass]="status.value == 'Completed' ? 'taskStatusCompleted' : 'taskStatusActive'" formControlName="status">
+            <option value="Completed" class="taskStatusCompleted">Completed</option>
+            <option value="Active" class="taskStatusActive">Active</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class = "formSubmissionButtonsGroup">
+      <div class="form-button d-inline">
+        <button type="button" (click)="OnEditTaskFormSubmit()" class="btn btn-light btnWithBorder formSubmissionReturnToListButton">
+          Submit and Return to Task List
+        </button>
+      </div>
+      <div class="form-button d-inline p-2">
+        <button type="button" (click)="CancelTaskEdit()" class="btn btn-light btnWithBorder formCancellationButton">
+          Cancel and Return to Task List
+        </button>
+      </div>
+    </div>
+
+  </form>
+</div>

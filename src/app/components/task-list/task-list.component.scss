@@ -1,0 +1,136 @@
+.filterBar
+{
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.showAllTasksFilterButton
+{
+    transition:0.25s;
+}
+
+.showAllTasksFilterButton:hover
+{
+    background-color:aquamarine;
+    transition: 0.25s;
+}
+
+.filterButton
+{
+    margin-right: 5px;
+}
+
+.filterButtonActive
+{
+    background-color:aquamarine;
+    fill-opacity: 0.5;
+    transition: 0.25s;
+}
+
+.filterButtonInactive
+{
+    background-color:salmon;
+    fill-opacity: 0.5;
+    transition: 0.25s;
+}
+
+.tableScrollContainer
+{
+    height: 665px;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+thead
+{
+    position: sticky;
+    top: 0;
+}
+
+th 
+{
+    width: 150px;
+    padding: 10px;
+    background-color: white;
+    overflow: hidden;
+    border: 1px solid black;
+    border-radius: 1px;
+    box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.3); 
+}
+
+tr:hover
+{
+    background-color:rgba(0, 0, 0, 0.05); 
+}
+
+td 
+{
+    width: 150px;
+    padding: 10px;
+    overflow: hidden;
+    border: 1px solid black;
+    border-radius: 1px;
+    box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.3);    
+}
+
+.taskStatusCompletedText
+{
+    background-color: darkcyan;
+    color:white;
+    transition: 0.25s;
+}
+
+.taskStatusActiveText
+{
+    background-color:forestgreen;
+    color:white;
+    transition: 0.25s;
+}
+
+.taskDescription
+{
+    width: 250px;
+    overflow: hidden;
+}
+
+.taskSideButtonTableData
+{
+    width: 260px;
+    display: flex;
+    justify-content:space-around;
+}
+
+.taskSideButton
+{
+    width: 80px;
+    border: 1px solid black;
+    transition: 0.25s;
+}
+
+.taskSideEditButton:hover 
+{
+    background-color:darkblue;
+    color: white;
+    transition: 0.25s;
+}
+
+.taskSideToggleStatusButtonActive:hover 
+{
+    background-color:darkcyan;
+    color: white;
+    transition: 0.25s;
+}
+
+.taskSideToggleStatusButtonComplete:hover 
+{
+    background-color:forestgreen;
+    color: white;
+    transition: 0.25s;
+}
+
+.taskSideDeleteButton:hover 
+{
+    background-color:firebrick;
+    color: white;
+    transition: 0.25s;
+}

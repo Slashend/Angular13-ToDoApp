@@ -1,0 +1,89 @@
+.editTaskFormContainer
+{
+    border-radius: 10px;
+    background-color: #f1f1f1;
+    padding: 15px;
+    align-self: center;
+
+    margin-top: 4%;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.formInputEntry
+{
+    margin-top: 10px;
+}
+
+.formInputBoxBorderError
+{
+    border: 3px solid;
+    border-color: indianred;
+}
+
+.formInputBoxBorderNoError
+{
+
+}
+
+
+.formLabel
+{
+    font-weight: bolder;
+    background-color: white;
+}
+
+input:required::placeholder
+{
+    color: indianred;
+    opacity: 0.8;
+}
+
+.formInputErrorMessage
+{
+    background:indianred!important;
+    color:white;
+    padding: 10px !important;
+    border-radius: 5px !important;
+    position: relative; 
+    display: inline-block !important;
+    box-shadow: 1px 1px 1px #aaaaaa;
+    margin-top: 10px;
+}
+
+.taskStatusCompleted
+{
+    background-color: darkcyan; 
+    color: white;
+}
+
+.taskStatusActive
+{
+    background-color: forestgreen;
+    color: white;
+}
+
+.formSubmissionButtonsGroup
+{
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.formSubmissionReturnToListButton:hover
+{
+    background-color:#00B74A;
+    color: white;
+    transition:0.5s;
+}
+
+.formCancellationButton:hover
+{
+    background-color:#F93154;
+    color: white;
+    transition:0.5s;
+}
+
+.btnWithBorder
+{
+    border: 2px solid black;
+}

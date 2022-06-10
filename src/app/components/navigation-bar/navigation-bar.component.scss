@@ -1,0 +1,22 @@
+.horizontalLeftMargin
+{
+    display: flex;
+    margin-left: 15px;
+}
+
+.btnWithBorder
+{
+    border: 2px solid black;
+}
+
+.moveImageToRight
+{
+    position: relative;
+    left: 5px;
+}
+
+.navBarStickToTop
+{
+    position: sticky;
+    top: 0px;
+}

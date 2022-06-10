@@ -1,0 +1,79 @@
+<div class="container">
+
+  <div class="filterBar">
+    <button appButtonColor (click)="ShowAllTasks()" 
+      title="Shows all tasks"
+      class="filterButton showAllTasksFilterButton">
+    Reset Task Filters
+    </button>
+    <button appButtonColor (click)="ToggleActiveTasks()" 
+      title="Show or hide all active/incomplete tasks"
+      [ngClass]="ShowActiveTasks ? 'filterButtonActive' : 'filterButtonInactive'"
+      class="filterButton">
+    {{ShowActiveTasks ? 'Active Tasks Unfiltered' : 'Active Tasks Filtered Out'}}
+    </button> 
+    <button appButtonColor (click)="ToggleCompletedTasks()" 
+      title="Show or hide all completed tasks"
+      [ngClass]="ShowCompletedTasks ? 'filterButtonActive' : 'filterButtonInactive'"
+      class="filterButton">
+    {{ShowCompletedTasks ? 'Completed Tasks Unfiltered' : 'Completed Tasks Filtered Out'}}
+    </button> 
+    <button appButtonColor (click)="ToggleDueTasks()" 
+      title="Show or hide all tasks due starting today"
+      [ngClass]="ShowDueTasks ? 'filterButtonActive' : 'filterButtonInactive'"
+      class="filterButton">
+    {{ShowDueTasks ? 'Due Tasks Unfiltered' : 'Due Tasks Filtered Out'}}
+    </button> 
+    <button appButtonColor (click)="ToggleLateTasks()" 
+      title="Show or hide all tasks due on a past date"
+      [ngClass]="ShowLateTasks ? 'filterButtonActive' : 'filterButtonInactive'"
+      class="filterButton">
+    {{ShowLateTasks ? 'Late Tasks Unfiltered' : 'Late Tasks Filtered Out'}}
+    </button>
+  </div>
+
+  <div>
+    <table>
+      <div class="tableScrollContainer">
+        <thead>
+          <tr>
+            <th>Task ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Due Date</th>
+            <th>Status</th>
+            <th>Task Options</th>
+          </tr>
+        </thead>   
+        <tbody>      
+          <tr *ngFor="let task of sourceTasks; let rowIndex = index;">
+            <ng-container *ngIf="ShouldDisplayTask(task)">
+              <td>{{ task.id }}</td>
+              <td>{{ task.name }}</td>
+              <td class="taskDescription">{{ task.description }}</td>
+              <td>{{ task.dueDate | date:'dd-MMM-yyyy' }}</td>
+              <td [ngClass]="task.isCompleted ? 'taskStatusCompletedText' : 'taskStatusActiveText'">
+                {{ task.isCompleted | taskIsCompleted }}
+              </td>
+              <td class="taskSideButtonTableData">    
+                <button (click)="onTaskEdit(task)" class="taskSideButton taskSideEditButton">
+                  <span class="fas fa-edit"></span><br>
+                  Edit 
+                </button> 
+                <button (click)="onTaskToggleStatus(task)" class="taskSideButton"
+                [ngClass]="task.isCompleted ? 'taskSideToggleStatusButtonComplete' : 'taskSideToggleStatusButtonActive'">
+                  <span class="fas fa-check-square"></span><br>
+                  {{task.isCompleted ? 'Activate' : 'Complete'}} 
+                </button>
+                <button (click)="onTaskDelete(task)" class="taskSideButton taskSideDeleteButton">
+                  <span class="fas fa-trash"></span><br>
+                  Delete
+                </button>
+              </td>          
+            </ng-container>
+          </tr> 
+        </tbody>    
+      </div>
+    </table>
+  </div>
+</div>
